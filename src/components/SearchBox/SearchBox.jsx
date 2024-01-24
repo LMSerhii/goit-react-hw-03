@@ -14,7 +14,7 @@ export const SearchBox = ({ value, onChange }) => {
         type="text"
         value={value}
         id={searchBoxId}
-        onChange={onChange}
+        onChange={evt => onChange(evt.target.value)}
       />
     </div>
   );
