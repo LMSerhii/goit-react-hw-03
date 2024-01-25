@@ -1,17 +1,11 @@
 export const searchByName = (arrey, query) => {
-  const lowercaseQuery = query.toLowerCase();
-
-  const result = arrey.filter(product =>
-    product.name.toLowerCase().includes(lowercaseQuery)
+  return arrey.filter(product =>
+    product.name.toLowerCase().includes(query.toLowerCase())
   );
-
-  return result;
 };
 
 export const searchByNumber = (arrey, query) => {
-  const result = arrey.filter(product => product.number.includes(query));
-
-  return result;
+  return arrey.filter(product => product.number.includes(query));
 };
 
 const isNumber = value => {

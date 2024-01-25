@@ -13,7 +13,6 @@ export const App = () => {
   const [contactList, setContactList] = useState(data);
 
   const addContact = newContact => {
-    console.log(newContact);
     setContactList(currContacts => {
       return [...currContacts, newContact];
     });
