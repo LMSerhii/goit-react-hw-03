@@ -1,5 +1,8 @@
+import { IconContext } from 'react-icons';
 import { FaUserAlt } from 'react-icons/fa';
 import { FaPhoneAlt } from 'react-icons/fa';
+import { IoClose } from 'react-icons/io5';
+
 import css from './Contact.module.css';
 
 export const Contact = ({ id, name, number, onDelete }) => {
@@ -13,8 +16,10 @@ export const Contact = ({ id, name, number, onDelete }) => {
           <FaPhoneAlt className={css.icon} /> {number}
         </p>
       </div>
-      <button type="button" onClick={() => onDelete(id)}>
-        Delete
+      <button className={css.button} type="button" onClick={() => onDelete(id)}>
+        <IconContext.Provider value={{ size: '2em' }}>
+          <IoClose />
+        </IconContext.Provider>
       </button>
     </div>
   );
