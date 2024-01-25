@@ -11,7 +11,7 @@ import css from './App.module.css';
 
 const getInitialContacts = () => {
   const savedContacts = load('saved-contacts');
-  return savedContacts ? savedContacts : data;
+  return savedContacts ? savedContacts : [];
 };
 
 export const App = () => {
