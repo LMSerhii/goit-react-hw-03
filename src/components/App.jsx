@@ -1,16 +1,26 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 import { ContactForm } from './ContactForm/ContactForm';
 import { SearchBox } from './SearchBox/SearchBox';
 import { ContactList } from './ContactList/ContactList';
 
 import { search } from '../helpers/searchFunction';
+import { load, save } from '../helpers/storage';
 import data from '../data/contactList.json';
 import css from './App.module.css';
 
+const getInitialContacts = () => {
+  const savedContacts = load('saved-contacts');
+  return savedContacts ? savedContacts : data;
+};
+
 export const App = () => {
   const [inputValue, setInputValue] = useState('');
-  const [contactList, setContactList] = useState(data);
+  const [contactList, setContactList] = useState(getInitialContacts);
+
+  useEffect(() => {
+    save('saved-contacts', contactList);
+  }, [contactList]);
 
   const addContact = newContact => {
     setContactList(currContacts => {
